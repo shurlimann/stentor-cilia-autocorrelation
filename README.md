@@ -177,12 +177,10 @@ c_intensity.to_pickle((vid_path[:-4] + '_ciliakymograph.pkl').replace('/data/', 
 ## Calculating the 2-D autocorrelations
 
 
-The auto-correlation $c(\delta t, \delta x)$ is given by:
-$$ c(\delta t, \delta x) = \frac
-{\sum_{t, x}^{t - \delta t, x - \delta x}{[f(t, x) - \overline f(t, x)][f(t + \delta t, x + \delta x) - \overline f(t + \delta t, x + \delta x)]}}
-{\{ \sum_{t, x}^{t - \delta t, x - \delta x} [f(t, x) - \overline f(t, x)]^2 \sum_{t, x}^{t - \delta t, x - \delta x} [f(t + \delta t, x + \delta x) - \overline f(t + \delta t, x + \delta x)]^2 \} ^{0.5}}$$
+The auto-correlation <img src="https://rawgit.com/in	git@github.com:shurlimann/stentor-cilia-autocorrelation/master/svgs/2b1ec185a1c03b2b652307c335f66a13.svg?invert_in_darkmode" align=middle width=58.39234994999998pt height=24.65753399999998pt/> is given by:
+<p align="center"><img src="https://rawgit.com/in	git@github.com:shurlimann/stentor-cilia-autocorrelation/master/svgs/b184bf8624a42b1fe1eb0dde69e08642.svg?invert_in_darkmode" align=middle width=676.6864731pt height=51.452204099999996pt/></p>
 
-where $f(t, x)$ is the image intensity along the cilia at time $t$ and point $x$, and $\overline f (t, x)$ is the mean of $f (t, x)$ in the region sampled.
+where <img src="https://rawgit.com/in	git@github.com:shurlimann/stentor-cilia-autocorrelation/master/svgs/a20ec231c3606125b540af53fbc13b04.svg?invert_in_darkmode" align=middle width=45.239815499999985pt height=24.65753399999998pt/> is the image intensity along the cilia at time <img src="https://rawgit.com/in	git@github.com:shurlimann/stentor-cilia-autocorrelation/master/svgs/4f4f4e395762a3af4575de74c019ebb5.svg?invert_in_darkmode" align=middle width=5.936097749999991pt height=20.221802699999984pt/> and point <img src="https://rawgit.com/in	git@github.com:shurlimann/stentor-cilia-autocorrelation/master/svgs/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode" align=middle width=9.39498779999999pt height=14.15524440000002pt/>, and <img src="https://rawgit.com/in	git@github.com:shurlimann/stentor-cilia-autocorrelation/master/svgs/3be2f97749721b78e14268d92595786e.svg?invert_in_darkmode" align=middle width=45.239815499999985pt height=28.091038800000003pt/> is the mean of <img src="https://rawgit.com/in	git@github.com:shurlimann/stentor-cilia-autocorrelation/master/svgs/ee52d31793e5d9204cde60d9ceb64c09.svg?invert_in_darkmode" align=middle width=45.239815499999985pt height=24.65753399999998pt/> in the region sampled.
 
 We chose to implement the autocorrelation this way instead of comparing a specific subset of the ciliary intensity (a ‘template’) to the entire data set. During regeneration, the ciliary motion is heterogeneous in both time and space and we did not want the results to be dependent on the specific template chosen; instead the whole data set is used.
 
